@@ -1,0 +1,56 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+@model IEnumerable<Cw12.Models.Patient>
+
+<style>
+    table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+    th, td {
+        padding: 5px;
+        text-align: left;    
+    }
+</style>
+
+<h1>List of patients</h1>
+<p>
+
+    <table>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Birth date</th>
+        </tr>
+
+        @foreach (var patient in Model)
+        {
+            <tr>
+
+                <td>
+                    @patient.FirstName
+
+                </td>
+
+                <td>
+
+                    @patient.LastName
+                </td>
+
+                <td>
+
+                    @patient.Birthdate
+
+                </td>
+
+            </tr>
+        }
+
+    </table>
+</p>
+
+

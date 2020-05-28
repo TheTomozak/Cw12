@@ -22,8 +22,9 @@ namespace Cw12.Controllers
             return View(_context.Patient.ToList());
         }
 
+        
 
-        public IActionResult Detail(int? id)
+        public IActionResult GetDetails(int id)
         {
             if (id == null)
             {
@@ -40,5 +41,46 @@ namespace Cw12.Controllers
 
             return View(patient);
         }
+
+        public IActionResult Delete(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var patient =  _context.Patient
+                .FirstOrDefault(m => m.IdPatient == id);
+            if (patient == null)
+            {
+                return NotFound();
+            }
+
+            return View(patient);
+        }
+
+
+
+        public IActionResult Add()
+        {
+
+
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Add(Patient patient)
+        {
+
+            if (!ModelState.IsValid)
+            {
+                return View(patient);
+            }
+            _context.Patient.Add(patient);
+            _context.SaveChangesAsync();
+
+            return RedirectToAction("Index");
+        }
+
     }
 }

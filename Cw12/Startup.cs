@@ -54,7 +54,7 @@ namespace Cw12
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Doctors}/{action=Index}/{id?}");
+                    pattern: "{controller=Patients}/{action=Index}/{id?}");
             });
         }
     }

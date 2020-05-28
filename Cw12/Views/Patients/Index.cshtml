@@ -1,30 +1,23 @@
 ﻿
 @{
-    ViewData["Title"] = "Index";
-}
 
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
 
 @model IEnumerable<Cw12.Models.Patient>
 
-<style>
-    table, th, td {
-        border: 1px solid black;
-        border-collapse: collapse;
-    }
-    th, td {
-        padding: 5px;
-        text-align: left;    
-    }
-</style>
+
 
 <h1>List of patients</h1>
 <p>
 
     <table>
         <tr>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Birth date</th>
+            <th>@Html.DisplayNameFor(modelItem => modelItem.FirstName)</th>
+            <th>@Html.DisplayNameFor(modelItem => modelItem.LastName)</th>
+            <th>@Html.DisplayNameFor(modelItem => modelItem.Birthdate)</th>
+            <th>Options</th>
+
         </tr>
 
         @foreach (var patient in Model)
@@ -44,6 +37,18 @@
                 <td>
 
                     @patient.Birthdate
+
+                </td>
+
+                <td>
+                    @* <a asp-action="Edit" asp-route-id="@patient.IdPatient">Edit</a> | *@
+                    @* <a asp-action="Details" asp-route-id="@patient.IdPatient">Details</a> | *@
+                    @* <a asp-action="Delete" asp-route-id="@patient.IdPatient">Delete</a> *@
+
+                    <a href="/patients/edit/@patient.IdPatient"> Edit </a> |
+                    <a href="/patients/getdetails/@patient.IdPatient"> Details </a> |
+                    <a href="/patients/delete/@patient.IdPatient"> Delete </a>
+
 
                 </td>
 

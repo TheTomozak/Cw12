@@ -1,0 +1,36 @@
+﻿@model Cw12.Models.Patient
+
+@{
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Patient details</h1>
+
+<p>
+    <table>
+        <tr>
+            <th>@Html.DisplayNameFor(modelItem => modelItem.FirstName)</th>
+            <th>@Html.DisplayNameFor(modelItem => modelItem.LastName)</th>
+            <th>@Html.DisplayNameFor(modelItem => modelItem.Birthdate)</th>
+
+
+        </tr>
+
+        <tr>
+            <td>
+                @Model.FirstName
+            </td>
+
+            <td>
+                @Model.LastName
+            </td>
+
+            <td>
+                @Model.Birthdate
+            </td>
+        </tr>
+    </table>
+
+
+</p>

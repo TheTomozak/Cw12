@@ -1,0 +1,34 @@
+﻿@model Cw12.Models.Patient
+
+
+@{
+    
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Add patient</h1>
+<form method="post" action="/patients/add">
+    
+    <div class="row">
+        <div class="input-field col s6">
+            <label>FirstName</label>
+            @* <input name="FirstName" type="text"/> *@
+            @Html.EditorFor( input => input.FirstName)
+            <span>@Html.ValidationMessageFor( mess => mess.FirstName )</span>
+        </div>
+        <div class="input-field col s6">
+            <label>LastName</label>
+            @* <input name="LastName" type="text" /> *@
+            @Html.EditorFor(input => input.LastName)
+            <span>@Html.ValidationMessageFor(mess => mess.LastName)</span>
+        </div>
+        <div class="input-field col s6">
+            <label>Birthdate</label>
+            @* <input name="Birthdate" type="text" /> *@
+            @Html.EditorFor(input => input.Birthdate)
+            <span>@Html.ValidationMessageFor(mess => mess.Birthdate)</span>
+        </div>
+    </div>
+    <input type="submit" value="Send" class="btn"/>
+
+</form>
